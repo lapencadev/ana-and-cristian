@@ -20,7 +20,14 @@ Un detalle pequeño pero bonito. 🌙✨
 - Easter eggs que se irán sumando el 13 de cada mes hasta la fecha.
 - Completamente adaptable a móviles
 
+## 🧩 Organización del código
+
+- `index.html`: estructura y contenido de la página.
+- `styles.css`: estilos visuales y responsive.
+- `main.js`: lógica del contador y texto dinámico.
+
 ## 🔗URL
 Puedes ver el resultado [aquí](https://ana-y-cristian.info/)
+
 ---
 Hecho con ❤️
