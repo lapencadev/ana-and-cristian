@@ -1,5 +1,5 @@
 const targetDate = new Date(2026, 5, 13, 0, 0, 0);
-const monthlyEggStartDate = new Date(2026, 2, 10, 0, 0, 0);
+const monthlyEggStartDate = new Date(2026, 2, 13, 0, 0, 0);
 
 const daysElement = document.getElementById("days");
 const hoursElement = document.getElementById("hours");
