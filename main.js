@@ -35,7 +35,7 @@ function updateMonthlyEgg(now) {
   monthlyEggElement.classList.toggle("is-special", isThirteenth);
   monthlyEggElement.innerHTML = `
     <span class="plane" aria-hidden="true">✈</span>
-    <p class="monthly-egg-main">Faltan <strong>${monthsLeft}</strong> ${monthsLabel} para el "si, quiero".</p>
+    <p class="monthly-egg-main">${monthsLeft === 1 ? "Falta" : "Faltan"} <strong>${monthsLeft}</strong> ${monthsLabel} para el "si, quiero".</p>
   `;
 }
 
@@ -90,6 +90,7 @@ despedidaToggle.addEventListener("click", () => {
   const isOpen = despedidaToggle.getAttribute("aria-expanded") === "true";
   despedidaToggle.setAttribute("aria-expanded", String(!isOpen));
   despedidaGallery.hidden = isOpen;
+  if (!isOpen) galleryTrack.scrollLeft = 0;
 });
 
 document.querySelector(".gallery-prev").addEventListener("click", () => {
