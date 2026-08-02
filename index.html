@@ -14,28 +14,33 @@
       <p>13 · 06 · 2026</p>
     </header>
 
-    <section class="countdown" aria-label="Cuenta regresiva para la boda">
-      <div class="time-box">
-        <div class="number" id="days">0</div>
-        <div class="label">Dias</div>
-      </div>
-      <div class="time-box">
-        <div class="number" id="hours">0</div>
-        <div class="label">Horas</div>
-      </div>
-      <div class="time-box">
-        <div class="number" id="minutes">0</div>
-        <div class="label">Minutos</div>
-      </div>
-      <div class="time-box">
-        <div class="number" id="seconds">0</div>
-        <div class="label">Segundos</div>
-      </div>
-    </section>
+    <div class="countdown-wrap" id="countdownWrap">
+      <section class="countdown" aria-label="Cuenta regresiva para la boda">
+        <div class="time-box">
+          <div class="number" id="days">0</div>
+          <div class="label">Dias</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="hours">0</div>
+          <div class="label">Horas</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="minutes">0</div>
+          <div class="label">Minutos</div>
+        </div>
+        <div class="time-box">
+          <div class="number" id="seconds">0</div>
+          <div class="label">Segundos</div>
+        </div>
+      </section>
 
-    <section class="monthly-egg" id="monthlyEgg" aria-live="polite"></section>
+      <section class="monthly-egg" id="monthlyEgg" aria-live="polite"></section>
 
-    <section class="magic-text" id="magicText" aria-live="polite"></section>
+      <section class="magic-text" id="magicText" aria-live="polite"></section>
+    </div>
+
+    <section class="celebration" id="celebration" aria-live="polite" hidden></section>
+
     <section class="despedida" id="despedida">
       <button class="despedida-toggle" id="despedidaToggle" aria-expanded="false">
         <span class="despedida-arrow">👀✨💖</span>

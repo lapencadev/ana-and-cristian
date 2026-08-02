@@ -1,4 +1,5 @@
 const targetDate = new Date(2026, 5, 13, 0, 0, 0);
+const dayAfterDate = new Date(targetDate.getTime() + 24 * 60 * 60 * 1000);
 const monthlyEggStartDate = new Date(2026, 2, 13, 0, 0, 0);
 
 const daysElement = document.getElementById("days");
@@ -7,6 +8,8 @@ const minutesElement = document.getElementById("minutes");
 const secondsElement = document.getElementById("seconds");
 const monthlyEggElement = document.getElementById("monthlyEgg");
 const magicTextElement = document.getElementById("magicText");
+const countdownWrapElement = document.getElementById("countdownWrap");
+const celebrationElement = document.getElementById("celebration");
 
 function calculateMonthsLeft(now, endDate) {
   let monthsLeft = (endDate.getFullYear() - now.getFullYear()) * 12;
@@ -39,9 +42,26 @@ function updateMonthlyEgg(now) {
   `;
 }
 
-function renderFinishedState() {
-  document.body.classList.add("is-finished");
-  document.body.innerHTML = '<h1 class="finished-message">Ha llegado el momento</h1>';
+let celebrationPhase = null;
+
+function renderCelebration(now) {
+  const phase = now < dayAfterDate ? "today" : "married";
+  if (phase === celebrationPhase) return;
+  celebrationPhase = phase;
+
+  celebrationElement.innerHTML = phase === "today"
+    ? `
+      <div class="celebration-rings" aria-hidden="true">💍</div>
+      <h2 class="celebration-title">Hoy es el día</h2>
+      <p class="celebration-names">Ana &amp; Cristian se casan</p>
+      <p class="celebration-line">Gracias por brillar con nosotros en este camino ✨🌙</p>
+    `
+    : `
+      <div class="celebration-rings" aria-hidden="true">💍</div>
+      <h2 class="celebration-title">Para siempre</h2>
+      <p class="celebration-names">Ana &amp; Cristian ya son marido y mujer</p>
+      <p class="celebration-line">Gracias por brillar con nosotros aquel día ✨🌙</p>
+    `;
 }
 
 function updateCountdown() {
@@ -49,7 +69,9 @@ function updateCountdown() {
   const diff = targetDate - now;
 
   if (diff <= 0) {
-    renderFinishedState();
+    countdownWrapElement.hidden = true;
+    celebrationElement.hidden = false;
+    renderCelebration(now);
     return;
   }
 
